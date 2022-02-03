@@ -1,12 +1,4 @@
-<?php
 
-$client = new MongoDB\Client(
-    'mongodb+srv://devProject:devProject@devproject.5y9b2.mongodb.net/DevProject?retryWrites=true&w=majority');
-
-$db = $client->test;
-echo "Connection to database successfully";
-echo "Database examplesdb selected";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
