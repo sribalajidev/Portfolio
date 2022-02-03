@@ -16,6 +16,6 @@ echo "Database examplesdb selected";
   <title>Sri Balaji - Portfolio</title>
 </head>
 <body>
-  <h1>On Progress of Portfolio Website</h1>
+  <h1>On Progress of dynamic Website</h1>
 </body>
 </html>
