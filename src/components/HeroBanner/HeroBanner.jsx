@@ -6,7 +6,7 @@ function HeroBanner() {
   const { tagline, badge, description, imageSrc, imageAlt } = pageContent.hero;
 
   return (
-    <section className="herobanner-wrapper">
+    <section className="herobanner-wrapper" id="home">
       <div className="img-wrapper">
         <img src={imageSrc} alt={imageAlt} className="main-img" />
       </div>
