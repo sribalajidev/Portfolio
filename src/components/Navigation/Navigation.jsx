@@ -1,11 +1,23 @@
 import './Navigation.scss';
 import siteLogo from '../../assets/images/logo.png';
 
-import { useState} from 'react';
+import { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 
 function Navigation() {
+  const scrollToSection = (id) => {
+    setIsNavOpen(false);
+
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  };
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleNav= () => {
     setIsNavOpen(!isNavOpen);
@@ -28,13 +40,16 @@ function Navigation() {
         <div className="nav-container">
           <div className="navlink-wrapper">
             <div className="nav-item">
-              <a className="nav-link">Link 1</a>
+              <a className="nav-link" onClick={() => scrollToSection("home")}>Home</a>
             </div>
             <div className="nav-item">
-              <a className="nav-link">Link 2</a>
+              <a className="nav-link" onClick={() => scrollToSection("about")}>About Me</a>
             </div>
             <div className="nav-item">
-              <a className="nav-link">Link 3</a>
+              <a className="nav-link" onClick={() => scrollToSection("experience")}>Experience</a>
+            </div>
+            <div className="nav-item">
+              <a className="nav-link" onClick={() => scrollToSection("contact")}>Let's Talk</a>
             </div>
           </div>
           <div className="sociallinks-wrapper">

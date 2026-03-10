@@ -2,12 +2,15 @@ import { pageContent } from "../../utils/pageContent";
 import './SimpleText.scss';
 
 function About() {
-  const { title, description, cards } = pageContent.about;
+  const { subtitle, title, description, cards } = pageContent.about;
 
   return (
-    <section className="bg-black mt-2.5 text-white py-10 px-5 lg:py-[100px] lg:px-[50px] rounded-t-[30px] lg:rounded-t-[50px]">
+    <section className="bg-black mt-2.5 text-white py-10 px-5 lg:py-[100px] lg:px-[50px] rounded-t-[30px] lg:rounded-t-[50px]" id="about">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-4">
-        <div className="title text-[42px] font-bold">{title}</div>
+        <div className="title-wrapper">
+          <div className="sub-title text-[16px]">{subtitle}</div>
+          <div className="title text-[42px] font-bold">{title}</div>
+        </div>
         <div className="content">
           <p className="text-[18px] font-normal">{description}</p>
         </div>

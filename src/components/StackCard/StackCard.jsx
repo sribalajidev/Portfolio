@@ -10,7 +10,8 @@ function StackCard() {
   useEffect(() => {
     const updateHeaderHeight = () => {
       if (headerRef.current) {
-        const height = headerRef.current.getBoundingClientRect().height;
+        const height = 0;
+        // const height = headerRef.current.getBoundingClientRect().height;
         setHeaderHeight(height);
       }
     };
@@ -23,7 +24,7 @@ function StackCard() {
   }, []);
 
   return (
-    <section className="experience-wrapper py-10 px-5 lg:py-[100px] lg:px-[50px]">
+    <section className="experience-wrapper py-10 px-5 lg:py-[100px] lg:px-[50px]" id="experience">
       <div className="header-content max-w-5xl">
         <div className="sub-title text-[16px]">{experience.subtitle}</div>
         <div className="title text-[42px] font-bold mb-[21px]">{experience.title}</div>

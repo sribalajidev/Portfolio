@@ -16,7 +16,8 @@ export const pageContent = {
   },
 
   about: {
-    title: "About Me",
+    subtitle: "About Me",
+    title: "The Story Behind My Work",
     description:
       "I’m a frontend developer specializing in building clean, responsive, and performance-focused web applications using React and modern JavaScript. I focus on translating designs into reliable, scalable user interfaces.",
 
