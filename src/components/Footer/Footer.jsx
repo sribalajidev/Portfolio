@@ -63,15 +63,15 @@ function Footer() {
           <div className='form-wrapper'>
             <iframe name="hidden_iframe" id="hidden_iframe" style={{ display: 'none' }} title="hidden-iframe" onLoad={handleIframeLoad}/>
             {!submitted && (
-            <form className="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe5t3_1Dit_cD1yjJVX5WCwPmsZ7p6SitMro4ncLQXboKBr3A/formResponse" method="POST" target="hidden_iframe" onSubmit={() => (formSubmitted.current = true)}>
+            <form className="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe5t3_1Dit_cD1yjJVX5WCwPmsZ7p6SitMro4ncLQXboKBr3A/formResponse" method="POST" target="hidden_iframe" onSubmit={() => (formSubmitted.current = true)}>
               <p> Hi, my name is
-              <input type="text" name="entry.352013793" className="lg:w-[180px]" placeholder="Your name" required />
+              <input type="text" name="entry.352013793" placeholder="Your name" required />
               You can reach me at
-              <input type="email" name="entry.1258670128" className="lg:w-[250px]" placeholder="email@example.com" required /></p>
+              <input type="email" name="entry.1258670128" placeholder="email@example.com" required /></p>
               <p>I'm reaching out regarding
-              <input type="text" name="entry.576254416" className="lg:w-[500px]" placeholder="job opportunity, collaboration, or just saying hi" required /></p>
+              <input type="text" name="entry.457346516" placeholder="job opportunity, collaboration, or just saying hi" required /></p>
               <p>Here's a bit more about it
-              <input type="text" name="entry.576254416" className="lg:w-[500px]" placeholder="Tell me about your idea..." required />
+              <input type="text" name="entry.576254416" placeholder="Tell me about your idea..." required />
               </p>
 
               <button type="submit" className="submit-btn">
