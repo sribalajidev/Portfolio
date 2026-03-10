@@ -1,0 +1,43 @@
+.card-wrapper {
+  .card-item {
+    position: relative;
+    width: calc(30% - 20px);
+    transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    &:after {
+      position: absolute;
+      content: "";
+    }
+    &:first-child {
+      width: calc(40% - 20px);
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("/src/assets/images/cardbg.jpeg") no-repeat center / cover;
+    }
+  }
+  &:has(.card-item:hover) .card-item:not(:hover) {
+    filter: blur(4px) brightness(0.8);
+  }
+  @media screen and (max-width:991px) {
+    .card-item:not(:last-child) {
+      width: calc(50% - 20px);
+    }
+    .card-item:last-child {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width:600px) {
+    .card-item {
+      width: 100% !important;
+    }
+  }
+}
+
+.horizontal-scroll-wrapper {
+  display: flex;
+  overflow-x: auto; /* Enables native horizontal scrolling */
+  overflow-y: hidden; /* Hides vertical scrollbar if present */
+  white-space: nowrap;
+  /* Add styling for height, width, and item spacing */
+}
+.horizontal-scroll-wrapper > div {
+  /* Add styling for individual items (width, height, margin) */
+  margin: 10px;
+}

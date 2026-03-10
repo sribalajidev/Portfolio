@@ -1,25 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import Loader from "./components/Loader/Loader";
+import Navigation from "./components/Navigation/Navigation";
+import HeroBanner from "./components/HeroBanner/HeroBanner";
+import SimpleText from "./components/SimpleText";
+import ScrollText from "./components/ScrollText";
+import Footer from "./components/Footer/Footer";
+
+// Importing Styles
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showLoader, setShowLoader] = useState(false);
+  const [loaderStart, setLoaderStart] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem("hasVisited");
+
+    if (!hasVisited) {
+      setShowLoader(true);
+      sessionStorage.setItem("hasVisited", "true");
+
+      requestAnimationFrame(() => {
+        setLoaderStart(true);
+      });
+    }
+  }, []);
 
   return (
     <>
-      <div className="overlay"></div>
-      <div className="stars" aria-hidden="true"></div>
-      <div className="starts2" aria-hidden="true"></div>
-      <div className="stars3" aria-hidden="true"></div>
-      <main className="main">
-        <section className="contact">
-          <h1 className="title">Awesome Thing</h1>
-          <h2 className="sub-title">Site Under Construction</h2>
-        </section>
-      </main>
+      {showLoader ? (
+        <Loader
+          start={loaderStart}
+          onFinish={() => {
+            setShowLoader(false);
+          }}
+        />
+      ) : (
+        <div className="app-content">
+          <Navigation />
+          <HeroBanner />
+          <SimpleText />
+          <ScrollText />
+          <Footer />
+        </div>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
