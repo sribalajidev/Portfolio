@@ -1,0 +1,38 @@
+@layer components {
+  .glass {
+    position: relative;
+    background: rgb(var(--glass-bg) / 0.15);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgb(var(--glass-border) / 0.25);
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0.05)
+    );
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  /* Primary button */
+  .btn-primary {
+    @apply px-6 py-2 rounded-xl font-medium transition-colors;
+    background: rgb(var(--text-primary));
+    color: rgb(var(--bg));
+  }
+
+  .btn-primary:hover {
+    background: rgb(var(--text-secondary));
+  }
+
+  /* Section wrapper */
+  .section {
+    @apply max-w-5xl mx-auto px-4 md:px-8 py-16;
+  }
+}
