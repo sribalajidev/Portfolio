@@ -37,6 +37,10 @@
     font-family: "Manrope-Regular", sans-serif;
   }
 
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
   .fade-in {
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;

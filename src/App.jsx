@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation/Navigation";
 import HeroBanner from "./components/HeroBanner/HeroBanner";
 import SimpleText from "./components/SimpleText";
 import ScrollText from "./components/ScrollText";
+import StackCard from "./components/StackCard/StackCard";
 import Footer from "./components/Footer/Footer";
 
 // Importing Styles
@@ -41,6 +42,7 @@ function App() {
           <HeroBanner />
           <SimpleText />
           <ScrollText />
+          <StackCard />
           <Footer />
         </div>
       )}
