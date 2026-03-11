@@ -37,14 +37,16 @@ function App() {
           }}
         />
       ) : (
-        <div className="app-content">
-          <Navigation />
+        <>
+        <Navigation />
+        <div className="app-content fade-in">
           <HeroBanner />
           <SimpleText />
           <ScrollText />
           <StackCard />
-          <Footer />
         </div>
+        <Footer />
+        </>
       )}
     </>
   );
