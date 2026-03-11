@@ -1,7 +1,7 @@
 import './Navigation.scss';
 import siteLogo from '../../assets/images/logo.png';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 
@@ -22,7 +22,21 @@ function Navigation() {
   const toggleNav= () => {
     setIsNavOpen(!isNavOpen);
   }
+
+  useEffect(() => {
+    if (isNavOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isNavOpen]);
+
   return (
+      <>
     <nav className={`main-navigation ${isNavOpen ? 'open' : ''}`}>
       <div className="site-logo">
         <img src={siteLogo} alt="Site Logo" />
@@ -32,7 +46,8 @@ function Navigation() {
         <span className="hamburger-line"></span>
         <span className="hamburger-line"></span>
       </div>
-      <div className='nav-overlay'>
+      </nav>
+      <div className={`nav-overlay ${isNavOpen ? 'open' : ''}`}>
         <span></span>
         <span></span>
         <span></span>
@@ -65,7 +80,7 @@ function Navigation() {
           </div>
         </div>
       </div>
-    </nav>
+      </>
   );
 }
 
