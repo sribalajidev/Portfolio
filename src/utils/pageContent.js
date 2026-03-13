@@ -1,9 +1,15 @@
 import imgHero from "../assets/images/hero.png";
-import imgTPG from "../assets/images/projects/tpgtelecom.png";
-import imgUPS from "../assets/images/projects/movin.png";
-import imgGeneve from "../assets/images/projects/universalgeneve.png";
-import imgVertex from "../assets/images/projects/vertex.png";
-import imgVertexHcp from "../assets/images/projects/vertexhcp.png";
+import imgBgOne from "../assets/images/bg-one.jpg";
+import imgBgTwo from "../assets/images/bg-two.jpg";
+
+import projectOne from "../assets/images/projects/project-1.jpg";
+import projectTwo from "../assets/images/projects/project-2.jpeg";
+import projectThree from "../assets/images/projects/project-3.jpg";
+import projectFour from "../assets/images/projects/project-4.jpg";
+import projectFive from "../assets/images/projects/project-5.jpg";
+import projectSix from "../assets/images/projects/project-6.jpg";
+import projectSeven from "../assets/images/projects/project-7.jpg";
+import projectEight from "../assets/images/projects/project-8.png";
 
 export const pageContent = {
   hero: {
@@ -49,69 +55,93 @@ export const pageContent = {
 
   experience: {
     subtitle: "Experience",
-    title: "My Professional Journey",
-    description:
-      "My professional journey spans enterprise CMS platforms and modern frontend development. I’ve collaborated with cross-functional teams to build scalable, user-focused web applications while continuously adapting to evolving frontend trends.",
+    title: "Where I've Built & Scaled Digital Products.",
+    stats: [
+      {
+        label: "Companies",
+        value: "2"
+      },
+      {
+        label: "Projects",
+        value: "10+"
+      },
+      {
+        label: "Technologies",
+        value: "7+"
+      },
+      {
+        label: "Problems Solving",
+        value: "∞"
+      }
+    ],
+    description: "Focused on crafting scalable digital products through thoughtful architecture and modern web technologies.",
     timeline: [
       {
         role: "Software Engineer",
         company: "Tech Mahindra",
         duration: "Jan 2022 – Present",
-        project: [
-          {
-            name: "TPG Telecom",
-            imgSrc: imgTPG,
-            link: "https://tpgtelecom.com.au/"
-          },
-          {
-            name: "UPS Movin",
-            imgSrc: imgUPS,
-            link: "https://movin.in/"
-          },
-          {
-            name: "Universal Genève",
-            imgSrc: imgGeneve,
-            link: "https://www.universalgeneve.com/"
-          },
-        ],
-        details: [
-          "Worked on enterprise-level projects including TPG Telecom, UPS Movin, Cigna CareAllies, and Universal Genève, focusing on frontend architecture and user experience enhancements. Developed custom Drupal themes with a strong focus on performance, accessibility, and reusable UI patterns. Collaborated with backend teams to design and integrate custom modules, ensuring seamless frontend–backend interaction. Contributed to modern frontend initiatives by building interactive UI components using React.js. Mentored and onboarded new developers while delivering features within tight project timelines."
-        ],
+        url: "https://www.techmahindra.com/",
+        img: imgBgOne,
         tags: [
-          "Drupal",
-          "React.js",
-          "JavaScript",
-          "Frontend Architecture",
+          "Enterprise",
+          "Frontend",
           "Team Collaboration"
         ]
       },
       {
         role: "Frontend Developer",
-        company: "Hogarth WorldWide",
+        company: "WPP Production (Formerly known as Hogarth WorldWide)",
         duration: "Apr 2020 – Jan 2022",
-        project: [
-          {
-            name: "Vertex Pharmaceuticals Incorporated",
-            imgSrc: imgVertex,
-            link: "https://www.vrtx.com/en-global/"
-          },
-          {
-            name: "Vertex Treatments Finder",
-            imgSrc: imgVertexHcp,
-            link: "https://www.vertextreatmentshcp.com/"
-          }
-        ],
-        details: [
-          "Worked on Drupal-based websites for Vertex Pharmaceuticals, focusing on scalable and maintainable frontend solutions. Managed and optimized Twig templates to improve frontend structure, consistency, and performance. Collaborated with backend developers to build custom components with clean frontend–backend integration. Used Git and JIRA to manage tasks, track progress, and maintain efficient development workflows."
-        ],
+        url: "https://www.wppproduction.com/",
+        img: imgBgTwo,
         tags: [
-          "Drupal",
-          "Twig",
-          "JavaScript",
-          "Git",
-          "Cross-functional Collaboration"
+          "Creative",
+          "Web",
+          "Drupal"
         ]
-      }
+      },
+    ],
+    projects: [
+      {
+        title: "TPG Telecom",
+        url: "https://www.tpgtelecom.com.au/",
+        img: projectOne
+      },
+      {
+        title: "Universal Genève",
+        url: "https://www.universalgeneve.com/",
+        img: projectTwo
+      },
+      {
+        title: "UPS Movin",
+        url: "https://www.movin.in/",
+        img: projectThree
+      },
+      {
+        title: "Vertex Pharmaceuticals",
+        url: "https://www.vrtx.com/en-global/",
+        img: projectFour
+      },
+      {
+        title: "Orkambi",
+        url: "https://www.orkambi.com/",
+        img: projectFive
+      },
+      {
+        title: "Kalydeco",
+        url: "https://www.kalydeco.com/",
+        img: projectSix
+      },
+      {
+        title: "Trikafta",
+        url: "https://www.trikafta.com/",
+        img: projectSeven
+      },
+      {
+        title: "CF Source HCP",
+        url: "https://www.cfsourcehcp.com/",
+        img: projectEight
+      },
     ]
   },
 
