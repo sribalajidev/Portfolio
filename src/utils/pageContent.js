@@ -1,15 +1,15 @@
-import imgHero from "../assets/images/hero.png";
-import imgBgOne from "../assets/images/bg-one.jpg";
-import imgBgTwo from "../assets/images/bg-two.jpg";
+import imgHero from "../assets/images/hero.webp";
+import imgBgOne from "../assets/images/bg-one.webp";
+import imgBgTwo from "../assets/images/bg-two.webp";
 
-import projectOne from "../assets/images/projects/project-1.jpg";
-import projectTwo from "../assets/images/projects/project-2.jpeg";
-import projectThree from "../assets/images/projects/project-3.jpg";
-import projectFour from "../assets/images/projects/project-4.jpg";
-import projectFive from "../assets/images/projects/project-5.jpg";
-import projectSix from "../assets/images/projects/project-6.jpg";
-import projectSeven from "../assets/images/projects/project-7.jpg";
-import projectEight from "../assets/images/projects/project-8.png";
+import projectOne from "../assets/images/projects/project-1.webp";
+import projectTwo from "../assets/images/projects/project-2.webp";
+import projectThree from "../assets/images/projects/project-3.webp";
+import projectFour from "../assets/images/projects/project-4.webp";
+import projectFive from "../assets/images/projects/project-5.webp";
+import projectSix from "../assets/images/projects/project-6.webp";
+import projectSeven from "../assets/images/projects/project-7.webp";
+import projectEight from "../assets/images/projects/project-8.webp";
 
 export const pageContent = {
   hero: {

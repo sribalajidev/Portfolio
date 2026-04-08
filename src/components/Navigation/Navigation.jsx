@@ -1,5 +1,5 @@
 import './Navigation.scss';
-import siteLogo from '../../assets/images/logo.png';
+import siteLogo from '../../assets/images/logo.webp';
 
 import { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
