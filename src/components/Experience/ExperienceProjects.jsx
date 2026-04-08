@@ -1,32 +1,40 @@
+import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Slider from "react-slick";
 
 function ExperienceProjects({ projects }) {
+  const [slidesToShow, setSlidesToShow] = useState(4); // default (desktop)
+
+  useEffect(() => {
+    const updateSlides = () => {
+      const width = window.innerWidth;
+
+      if (width < 600) {
+        setSlidesToShow(2); 
+      } else if (width < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+
+    updateSlides(); // run on mount
+    window.addEventListener("resize", updateSlides);
+
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
   const settings = {
     dots: false,
     arrows: true,
     infinite: true,
-    slidesToShow: 4, 
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     speed: 1000, 
     cssEase: "linear",
     pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-    ]
   };
   return(
     <div className="projects-wrapper">
