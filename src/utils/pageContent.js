@@ -1,6 +1,7 @@
 import imgHero from "../assets/images/hero.webp";
 import imgBgOne from "../assets/images/bg-one.webp";
 import imgBgTwo from "../assets/images/bg-two.webp";
+import imgBgThree from "../assets/images/bg-three.webp";
 
 import projectOne from "../assets/images/projects/project-1.webp";
 import projectTwo from "../assets/images/projects/project-2.webp";
@@ -76,6 +77,18 @@ export const pageContent = {
     ],
     description: "Focused on crafting scalable digital products through thoughtful architecture and modern web technologies.",
     timeline: [
+      {
+        role: "Associate - Projects",
+        company: "Cognizant",
+        duration: "March 2026 – Present",
+        url: "https://www.cognizant.com/",
+        img: imgBgThree,
+        tags: [
+          "Web",
+          "Healthcare",
+          "Enterprise"
+        ]
+      },
       {
         role: "Software Engineer",
         company: "Tech Mahindra",

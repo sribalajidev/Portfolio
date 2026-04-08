@@ -51,9 +51,9 @@ function ExperienceTimeline({ timeline }) {
                   <a href={item.url} target="_blank">
                     <div className="img-wrapper">
                       <img src={item.img} alt={item.company} className="w-full h-auto" />
-                      <div className="tag">
+                      <div className="tag p-2">
                         {item.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="tag-item text-[14px] px-2 py-1 mr-2 mb-2 inline-block">
+                          <span key={tagIndex} className="tag-item text-[14px] px-2 py-1 mr-2 inline-block">
                             {tag}
                           </span>
                         ))}

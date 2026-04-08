@@ -27,15 +27,18 @@
       position: relative;
       .slick-slider {
         padding: 5px 5px 5px 30px;
-        @media screen and (max-width: 768px) {
-        padding: 5px 5px 5px 15px;
-        }
         .slick-dots {
           left: -30px;
           width: fit-content;
           height: fit-content;
           top: 50%;
           transform: translateY(-50%) rotate(90deg);
+        }
+        @media screen and (max-width: 768px) {
+          padding: 5px 5px 5px 15px;
+          .slick-dots {
+          left: -45px;
+          }
         }
       }
       .timeline-item {
@@ -71,6 +74,7 @@
             position: relative;
             margin-top: auto;
             z-index: 9;
+            width: 90%;
           }
           .overlay-arrow {
             position: absolute;
@@ -99,7 +103,6 @@
           }
           img {
             position: absolute;
-            content: '';
             width: 100%;
             height: 100%;
             object-fit: cover;
