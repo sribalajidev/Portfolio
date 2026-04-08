@@ -10,7 +10,7 @@ function ExperienceProjects({ projects }) {
       const width = window.innerWidth;
 
       if (width < 600) {
-        setSlidesToShow(2); 
+        setSlidesToShow(1); 
       } else if (width < 1024) {
         setSlidesToShow(2);
       } else {
