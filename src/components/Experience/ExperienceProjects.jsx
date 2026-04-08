@@ -14,7 +14,7 @@ function ExperienceProjects({ projects }) {
       } else if (width < 1024) {
         setSlidesToShow(2);
       } else {
-        setSlidesToShow(3);
+        setSlidesToShow(4);
       }
     };
 
