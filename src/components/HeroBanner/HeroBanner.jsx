@@ -1,5 +1,5 @@
 import './HeroBanner.scss';
-import heroImg from '../../assets/images/hero.png';
+import heroImg from '../../assets/images/hero.webp';
 import { pageContent } from "../../utils/pageContent";
 
 function HeroBanner() {
