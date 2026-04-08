@@ -9,7 +9,7 @@
     }
     &:first-child {
       width: calc(40% - 20px);
-      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("/src/assets/images/cardbg.jpeg") no-repeat center / cover;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("/src/assets/images/cardbg.webp") no-repeat center / cover;
     }
   }
   &:has(.card-item:hover) .card-item:not(:hover) {
