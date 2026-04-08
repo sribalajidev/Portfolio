@@ -90,7 +90,7 @@ export const pageContent = {
       },
       {
         role: "Frontend Developer",
-        company: "WPP Production (Formerly known as Hogarth WorldWide)",
+        company: "Hogarth WorldWide",
         duration: "Apr 2020 – Jan 2022",
         url: "https://www.wppproduction.com/",
         img: imgBgTwo,

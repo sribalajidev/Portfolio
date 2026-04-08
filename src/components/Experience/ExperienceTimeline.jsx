@@ -1,13 +1,31 @@
+import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Slider from "react-slick";
 
 
 function ExperienceTimeline({ timeline }) {
+  const [slidesToShow, setSlidesToShow] = useState(1);
+
+  useEffect(() => {
+    const updateSlides = () => {
+      if (window.innerWidth < 1024) {
+        setSlidesToShow(1);
+      } else {
+        setSlidesToShow(2);
+      }
+    };
+
+    updateSlides(); // run on mount
+    window.addEventListener("resize", updateSlides);
+
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
   const settings = {
     dots: true,
     arrows: false,
     infinite: true,
-    slidesToShow: 2, 
+    slidesToShow: slidesToShow, 
     slidesToScroll: 1,
     vertical: true, 
     verticalSwiping: true, 
@@ -16,14 +34,6 @@ function ExperienceTimeline({ timeline }) {
     speed: 1000, 
     cssEase: "linear",
     pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-        }
-      },
-    ]
   };
   return (
     <div className="timeline-wrapper">
