@@ -60,7 +60,7 @@ export const pageContent = {
     stats: [
       {
         label: "Companies",
-        value: "2"
+        value: "3"
       },
       {
         label: "Projects",
