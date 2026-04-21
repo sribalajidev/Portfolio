@@ -12,6 +12,12 @@ import projectSix from "../assets/images/projects/project-6.webp";
 import projectSeven from "../assets/images/projects/project-7.webp";
 import projectEight from "../assets/images/projects/project-8.webp";
 
+import iconOne from '../assets/images/icon-1.png';
+import iconTwo from '../assets/images/icon-2.png';
+import iconThree from '../assets/images/icon-3.png';
+import iconFour from '../assets/images/icon-4.png';
+import { sub } from "three/tsl";
+
 export const pageContent = {
   hero: {
     tagline:
@@ -27,24 +33,60 @@ export const pageContent = {
     title: "The Story Behind My Work",
     description:
       "I’m a frontend developer specializing in building clean, responsive, and performance-focused web applications using React and modern JavaScript. I focus on translating designs into reliable, scalable user interfaces.",
-
-    cards: [
+    collob: [
       {
-        title: "Building Clean Interfaces",
-        description:
-          "I build responsive and accessible user interfaces with a strong focus on layout consistency, usability, and maintainable frontend architecture.",
-      },
-      {
-        title: "React & JavaScript",
-        description:
-          "Developing component-based user interfaces with React and modern JavaScript, emphasizing clarity, reusability, and predictable state management.",
-      },
-      {
-        title: "Best Practices",
-        description:
-          "Building scalable and maintainable frontend components by applying modern UI patterns, clean code practices, and performance considerations.",
+        title: "How I collaborate",
+        subtitle: "My working style",
+        traits: [
+          {
+            imgSrc: iconOne,
+            imageAlt: "Async-first icon",
+            name: "Async-first",
+            desc: "Clear documentation, structured updates, and decisions that stay visible.",
+          },
+          {
+            imgSrc: iconTwo,
+            imageAlt: "Low-noise collaboration icon",
+            name: "Low-noise collaboration",
+            desc: "Focused discussions, more meaningful outcomes.",
+          },
+          {
+            imgSrc: iconThree,
+            imageAlt: "Ownership mindset icon",
+            name: "Ownership mindset",
+            desc: "Take responsibility for features end-to-end, from implementation to deployment.",
+          },
+          {
+            imgSrc: iconFour,
+            imageAlt: "Feedback-driven icon",
+            name: "Feedback-driven",
+            desc: "Ship early, refine continuously, and improve based on real input.",
+          },
+        ],
+        process: [
+            {
+              num: 1,
+              title: "Understand the problem",
+              detail: "Align on goals, constraints, and what success actually looks like.",
+            },
+            {
+              num: 2,
+              title: "Plan before building",
+              detail: "Break down components, data flow, and edge cases early.",
+            },
+            {
+              num: 3,
+              title: "Build iteratively",
+              detail: "Develop in small increments with continuous validation.",
+            },
+            {
+              num: 4,
+              title: "Refine and deliver",
+              detail: "Optimize performance, ensure quality, and prepare for release.",
+            },
+        ],
       }
-    ]
+    ],
   },
 
   skills: {

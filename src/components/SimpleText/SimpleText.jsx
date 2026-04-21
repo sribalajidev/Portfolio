@@ -1,5 +1,8 @@
 import { pageContent } from "../../utils/pageContent";
 import './SimpleText.scss';
+import GlobeCard from "../GlobeCard";
+import CollabCard from "../CollabCard";
+import ProcessCard from "../ProcessCard";
 
 function About() {
   const { subtitle, title, description, cards } = pageContent.about;
@@ -15,17 +18,10 @@ function About() {
           <p className="text-[18px] font-normal">{description}</p>
         </div>
       </div>
-
-      <div className="card-wrapper flex flex-wrap gap-6 mt-10 lg:mt-20">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className="card-item glass flex flex-col justify-between p-5 border-radius-[20px] min-h-[250px]"
-          >
-            <div className="text-[24px] font-bold">{card.title}</div>
-            <p className="text-[16px]">{card.description}</p>
-          </div>
-        ))}
+      <div className="card-wrapper grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 lg:mt-20">
+        <CollabCard />
+        <ProcessCard />
+        <GlobeCard />
       </div>
     </section>
   );

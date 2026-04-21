@@ -21,7 +21,7 @@ function ScrollText() {
     const onScroll = () => {
       const scroll = window.scrollY * 0.3;
 
-      const x1 = scroll % row1Width - 600;
+      const x1 = scroll % row1Width - 1200;
       const x2 = scroll % row2Width;
 
       row1Ref.current.style.transform = `translateX(${x1}px)`;
