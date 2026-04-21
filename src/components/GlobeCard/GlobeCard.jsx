@@ -1,9 +1,16 @@
 import './GlobeCard.scss';
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import GlobeMesh from "./GlobeMesh";
 
 export default function GlobeCard() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className='globe-card w-full min-w-0'>
       <div className='globe-copy p-5'>
@@ -11,7 +18,8 @@ export default function GlobeCard() {
         <p className='text-[16px] text-[#a2a2a2]'>India · USA · UK · UAE · Australia</p>
       </div>
       <div className="globe-container">
-        <div style={{ width: 400, height: 400 }}>
+        <div className="w-full h-[300px] md:h-[350px] lg:h-[400px]">
+          {mounted && (
           <Canvas camera={{ position: [0, 0, 250], fov: 50 }}>
             <ambientLight intensity={10} />
             <GlobeMesh />
@@ -21,6 +29,7 @@ export default function GlobeCard() {
               rotateSpeed={0.6}
             />
           </Canvas>
+          )}
         </div>
       </div>
     </div>

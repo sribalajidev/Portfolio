@@ -9,20 +9,23 @@ function ScrollText() {
   const row2Ref = useRef(null);
 
   useEffect(() => {
-    let row1Width = 0;
-    let row2Width = 0;
+    const row1WidthRef = { current: 0 };
+    const row2WidthRef = { current: 0 };
 
-    // Measure widths AFTER render
     requestAnimationFrame(() => {
-      row1Width = row1Ref.current.scrollWidth / 2;
-      row2Width = row2Ref.current.scrollWidth / 2;
+      if (!row1Ref.current || !row2Ref.current) return;
+
+      row1WidthRef.current = row1Ref.current.scrollWidth / 2;
+      row2WidthRef.current = row2Ref.current.scrollWidth / 2;
     });
 
     const onScroll = () => {
+      if (!row1Ref.current || !row2Ref.current) return;
+
       const scroll = window.scrollY * 0.3;
 
-      const x1 = scroll % row1Width - 1200;
-      const x2 = scroll % row2Width;
+      const x1 = scroll % row1WidthRef.current - 1200;
+      const x2 = scroll % row2WidthRef.current;
 
       row1Ref.current.style.transform = `translateX(${x1}px)`;
       row2Ref.current.style.transform = `translateX(-${x2}px)`;
