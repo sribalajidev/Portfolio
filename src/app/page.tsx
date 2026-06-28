@@ -20,10 +20,14 @@ export default function Home() {
     const hasVisited = sessionStorage.getItem("hasVisited");
 
     if (!hasVisited) {
-      setShowLoader(true);
       sessionStorage.setItem("hasVisited", "true");
+
       requestAnimationFrame(() => {
-        setLoaderStart(true);
+        setShowLoader(true);
+
+        requestAnimationFrame(() => {
+          setLoaderStart(true);
+        });
       });
     }
   }, []);
@@ -34,21 +38,24 @@ export default function Home() {
   const experienceSectionRef = useRef<HTMLDivElement>(null);
   const footerSectionRef = useRef<HTMLDivElement>(null);
   
-  useGSAP(
-    () => {
-      const raf = requestAnimationFrame(() => {
-        animateSectionTransition({
-          from: heroSectionRef.current,
-          to: aboutSectionRef.current,
-        });
-      });
+ useGSAP(() => {
+  let raf1 = 0;
+  let raf2 = 0;
 
-      return () => cancelAnimationFrame(raf);
-    },
-    {
-      scope: heroSectionRef,
-    }
-  );
+  raf1 = requestAnimationFrame(() => {
+    raf2 = requestAnimationFrame(() => {
+      animateSectionTransition({
+        from: heroSectionRef.current,
+        to: aboutSectionRef.current,
+      });
+    });
+  });
+
+  return () => {
+    cancelAnimationFrame(raf1);
+    cancelAnimationFrame(raf2);
+  };
+});
   return (
     <>
       {showLoader ? (
