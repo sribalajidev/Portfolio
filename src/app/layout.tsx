@@ -9,13 +9,16 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Sri Balaji | Frontend Engineer",
+  title: "Sri Balaji — Building Modern Web Experiences",
 
   description:
-    "Frontend Engineer specializing in React, Next.js, TypeScript, and modern web experiences. Building performant, scalable, and user-focused digital products.",
+    "Sri Balaji is a creative developer crafting modern web experiences using React, JavaScript, and UI engineering. Specializing in sleek design, smooth interactions, and agency-grade digital experiences.",
 
   keywords: [
     "Sri Balaji",
+    "Sri",
+    "Sri Balaji Dev",
+    "Creative Developer",
     "Frontend Engineer",
     "Frontend Developer",
     "React Developer",
@@ -25,6 +28,7 @@ export const metadata: Metadata = {
     "UI Engineer",
     "Web Developer",
     "Portfolio",
+    "modern web experiences",
   ],
 
   authors: [
@@ -42,10 +46,10 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Sri Balaji | Frontend Engineer",
+    title: "Sri Balaji — Building Modern Web Experiences",
 
     description:
-      "Building modern, performant, and user-focused web experiences using React, Next.js, TypeScript, and modern frontend technologies.",
+      "Creative developer crafting modern, interactive, and agency-grade web experiences.",
 
     url: "https://sribalajidev.com",
 
@@ -68,10 +72,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "Sri Balaji | Frontend Engineer",
+    title: "Sri Balaji — Building Modern Web Experiences",
 
     description:
-      "Building modern, performant, and user-focused web experiences using React, Next.js, TypeScript, and modern frontend technologies.",
+      "Creative developer crafting modern, interactive, and agency-grade web experiences.",
 
     images: ["/og-image.png"],
   },
