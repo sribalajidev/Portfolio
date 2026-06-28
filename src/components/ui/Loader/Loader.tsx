@@ -1,4 +1,4 @@
-"use client"; // This file is a client component because it uses state and effects
+"use client";
 import { useEffect, useRef } from "react";
 import styles from "./Loader.module.scss";
 
@@ -7,11 +7,12 @@ type LoaderProps = {
   onFinish: () => void;
 };
 
-function Loader({start, onFinish,}: LoaderProps) {
+function Loader({ start, onFinish }: LoaderProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const hasFinishedRef = useRef(false); // guards against double-calling onFinish
 
   useEffect(() => {
-    if (!start) return;
+    if (!start || hasFinishedRef.current) return;
 
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
@@ -21,20 +22,33 @@ function Loader({start, onFinish,}: LoaderProps) {
     const line = wrapper.querySelector(`.${styles.line}`);
     if (!line) return;
 
-    const handleLineEnd = () => {
-      wrapper.classList.add(styles.wipe);
+    let timeoutId: number;
 
-      // Wipe transition takes 800ms → Remove loader after that
-      setTimeout(onFinish, 800);
+    const handleLineEnd = () => {
+      if (hasFinishedRef.current) return;
+
+      wrapper.classList.add(styles.wipe);
+      timeoutId = window.setTimeout(() => {
+        if (!hasFinishedRef.current) {
+          hasFinishedRef.current = true;
+          onFinish();
+        }
+      }, 800);
     };
 
     line.addEventListener("transitionend", handleLineEnd, { once: true });
 
-    return () => line.removeEventListener("transitionend", handleLineEnd);
+    return () => {
+      line.removeEventListener("transitionend", handleLineEnd);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
   }, [start, onFinish]);
 
   return (
-    <div ref={wrapperRef} className={`relative flex items-center justify-center min-h-screen bg-black text-white ${styles.loaderWrapper}`}>
+    <div
+      ref={wrapperRef}
+      className={`relative flex items-center justify-center min-h-screen bg-black text-white ${styles.loaderWrapper}`}
+    >
       <div className={styles.title}>Sri Balaji</div>
       <div className={styles.line} />
     </div>
