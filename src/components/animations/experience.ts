@@ -51,8 +51,8 @@ export function animateExperience({
         opacity: 1,
         y: 0,
         filter: "blur(0px)",
-        duration: 1.2,
-        ease: "power3.out",
+        duration: 1,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: stats,
           start: "top 85%",
@@ -65,12 +65,11 @@ export function animateExperience({
       stats.querySelectorAll("[data-counter]")
     );
 
+    // Reset counters to 0 while preserving the original value
     counters.forEach((counter) => {
-      const original = counter.textContent ?? "";
+      const original = counter.dataset.target;
 
-      if (!/^\d/.test(original)) return;
-
-      counter.dataset.target = original;
+      if (!original) return;
 
       const suffix = original.replace(/[0-9]/g, "");
 
@@ -89,7 +88,7 @@ export function animateExperience({
 
             if (!original) return;
 
-            const target = Number(original.replace(/\D/g, ""));
+            const target = parseInt(original, 10);
             const suffix = original.replace(/[0-9]/g, "");
 
             const value = { current: 0 };
@@ -97,7 +96,7 @@ export function animateExperience({
             gsap.to(value, {
               current: target,
               duration: 1.5,
-              ease: "power3.out",
+              ease: "power2.out",
               snap: { current: 1 },
 
               onUpdate: () => {

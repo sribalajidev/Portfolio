@@ -15,7 +15,7 @@ export default function ExperienceStats({
       <div className="grid grid-cols-2 gap-4">
         {stats.map((stat) => (
           <div key={stat.label} className="p-4">
-            <span className="text-4xl font-bold" data-counter={/^\d/.test(stat.value)}>
+            <span className="text-4xl font-bold" data-counter data-target={stat.value}>
               {stat.value}
             </span>
 

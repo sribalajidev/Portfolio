@@ -1,9 +1,8 @@
-"use client"; // This file is a client component because it uses state and effects
-import { useEffect, useState, useRef } from "react";
+"use client";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { animateSectionTransition } from "@/components/animations/sectionTransitions";
 
-// components import
 import Loader from "@/components/ui/Loader/Loader";
 import Navbar from "@/components/ui/Navbar/Navbar";
 import Hero from "@/components/sections/Hero/Hero";
@@ -13,58 +12,52 @@ import Experience from "@/components/sections/Experience/Experience";
 import Footer from "@/components/ui/Footer/Footer";
 
 export default function Home() {
-  const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(true); // default true, not false
   const [loaderStart, setLoaderStart] = useState(false);
+  const [contentReady, setContentReady] = useState(false); // gates section mounting
 
   useEffect(() => {
     const hasVisited = sessionStorage.getItem("hasVisited");
 
     if (!hasVisited) {
       sessionStorage.setItem("hasVisited", "true");
-
       requestAnimationFrame(() => {
-        setShowLoader(true);
-
-        requestAnimationFrame(() => {
-          setLoaderStart(true);
-        });
+        setLoaderStart(true);
       });
+    } else {
+      // Returning visitor — skip the loader entirely, mount immediately
+      setShowLoader(false);
+      setContentReady(true);
     }
   }, []);
 
-  // refs for sections - section animation
+  const handleLoaderFinish = useCallback(() => {
+    setShowLoader(false);
+    setContentReady(true); // NOW do the sections mount
+  }, []);
+
   const heroSectionRef = useRef<HTMLDivElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const experienceSectionRef = useRef<HTMLDivElement>(null);
   const footerSectionRef = useRef<HTMLDivElement>(null);
-  
- useGSAP(() => {
-  let raf1 = 0;
-  let raf2 = 0;
 
-  raf1 = requestAnimationFrame(() => {
-    raf2 = requestAnimationFrame(() => {
-      animateSectionTransition({
-        from: heroSectionRef.current,
-        to: aboutSectionRef.current,
-      });
+  useGSAP(() => {
+    if (!contentReady) return;
+
+    animateSectionTransition({
+      from: heroSectionRef.current,
+      to: aboutSectionRef.current,
     });
-  });
+  }, [contentReady]);
 
-  return () => {
-    cancelAnimationFrame(raf1);
-    cancelAnimationFrame(raf2);
-  };
-});
   return (
     <>
-      {showLoader ? (
-        <Loader
-          start={loaderStart}
-          onFinish={() => setShowLoader(false)}
-        />
-      ) : (
-        <> 
+      {showLoader && (
+        <Loader start={loaderStart} onFinish={handleLoaderFinish} />
+      )}
+
+      {contentReady && (
+        <>
           <Navbar />
           <div ref={heroSectionRef} id="home">
             <Hero />
@@ -78,7 +71,7 @@ export default function Home() {
           <div ref={experienceSectionRef} id="experience">
             <Experience />
           </div>
-          <div ref={footerSectionRef} id="contact">
+          <div ref={footerSectionRef} id="footer">
             <Footer />
           </div>
         </>
