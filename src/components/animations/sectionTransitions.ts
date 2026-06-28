@@ -1,12 +1,16 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
+gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 type SectionTransitionProps = {
   from: HTMLElement | null;
   to: HTMLElement | null;
 };
+
+export const sectionTransitions = new Map<string, ScrollTrigger>();
 
 export function animateSectionTransition({
   from,
@@ -21,6 +25,7 @@ export function animateSectionTransition({
 
   const tl = gsap.timeline({
     scrollTrigger: {
+      id: `transition-${to.id}`,
       trigger: to,
       start: "top bottom",
       end: "top top",
@@ -35,7 +40,7 @@ export function animateSectionTransition({
     from,
     {
       scale: 0.9,
-      opacity: 0.5,
+      opacity: 0,
       filter: "blur(5px)",
       ease: "none",
     },
@@ -50,4 +55,9 @@ export function animateSectionTransition({
     },
     0
   );
+
+  const st = tl.scrollTrigger;
+  if (st) {
+    sectionTransitions.set(from.id, st);
+  }
 }

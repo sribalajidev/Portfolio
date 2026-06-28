@@ -26,8 +26,8 @@ export function animateHero({
 
   tl.from(imageContainer, {
     yPercent: 100,
-    duration: 1.5,
-    ease: "power4.out",
+    duration: 1,
+    ease: "power2.out",
   });
 
   tl.from(image, {
@@ -90,7 +90,7 @@ export function animateHero({
       duration: 0.7,
       ease: "power3.out",
     },
-    "headingReveal+=1.4"
+    "headingReveal+=0.2"
   );
 
   return tl;

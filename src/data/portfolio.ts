@@ -1,5 +1,3 @@
-// import { sub } from "three/tsl";
-
 export const portfolioData = {
   navigation: {
     links: [
@@ -44,7 +42,7 @@ export const portfolioData = {
       "web experiences",
     ],
     badge: "Available for a full-time role",
-    description: "Hi, I'm Sri Balaji - a frontend developer focused on building clean, responsive and performance driven web applications using React and modern Javascript.",
+    description: "Hi, I'm Sri Balaji — a Frontend Engineer specializing in React, Next.js and TypeScript. I build scalable, accessible and high-performance web applications with a strong focus on clean architecture, reusable components and exceptional user experience.",
     imageSrc: "/images/hero.webp",
     imageAlt: "Hero Banner Image"
   },
@@ -53,7 +51,7 @@ export const portfolioData = {
     subtitle: "About Me",
     title: "The Story Behind My Work",
     description:
-      "I’m a frontend developer specializing in building clean, responsive, and performance-focused web applications using React and modern JavaScript. I focus on translating designs into reliable, scalable user interfaces.",
+      "I specialize in building scalable frontend applications using React, Next.js and TypeScript. I focus on translating designs into reliable, scalable user interfaces.",
     collaboration: {
       title: "How I collaborate",
       subtitle: "My working style",
@@ -125,8 +123,8 @@ export const portfolioData = {
 
   skills: {
     categories: [
-      ["HTML5", "CSS3", "SASS", "Bootstrap", "Tailwind", "Javascript", "jQuery", "React"],
-      ["Vue", "Nodejs", "Expressjs", "Drupal", "MySQL", "MongoDB", "Git", "Jira"]
+      ["Reactjs", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Sass", "Tailwind CSS"],
+      ["Nodejs", "Expressjs", "Drupal", "MySQL", "MongoDB", "Git", "Jira", "CMS"]
     ]
   },
 
@@ -143,11 +141,11 @@ export const portfolioData = {
         value: "10+"
       },
       {
-        label: "Technologies",
-        value: "7+"
+        label: "Years Experience",
+        value: "5+"
       },
       {
-        label: "Delivery Focus",
+        label: "Frontend Focus",
         value: "100%"
       }
     ],
@@ -170,9 +168,9 @@ export const portfolioData = {
 
         highlights: [
           "Refactored legacy components into maintainable, reusable architecture.",
-          "Built automation scripts that reduced repetitive manual development tasks across the team.",
+          "Developed utility scripts to automate repetitive code refactoring tasks, including large-scale design token migration across the codebase.",
           "Introduced modern frontend practices using TypeScript and component-driven development.",
-          "Exploring Next.js, and Gen AI workflows to improve developer productivity."
+          "Leveraging Next.js, TypeScript and AI-assisted workflows to modernize enterprise frontend development and improve developer productivity."
         ]
       },
 
@@ -186,7 +184,6 @@ export const portfolioData = {
 
         technologies: [
           "React",
-          "Vue",
           "Drupal",
           "TypeScript",
           "Sass",
@@ -224,48 +221,6 @@ export const portfolioData = {
         ]
       }
     ],
-    projects: [
-      {
-        title: "TPG Telecom",
-        url: "https://www.tpgtelecom.com.au/",
-        imgSrc: "/images/project-1.webp"
-      },
-      {
-        title: "Universal Genève",
-        url: "https://www.universalgeneve.com/",
-        imgSrc: "/images/project-2.webp"
-      },
-      {
-        title: "UPS Movin",
-        url: "https://www.movin.in/",
-        imgSrc: "/images/project-3.webp"
-      },
-      {
-        title: "Vertex Pharmaceuticals",
-        url: "https://www.vrtx.com/en-global/",
-        imgSrc: "/images/project-4.webp"
-      },
-      {
-        title: "Orkambi",
-        url: "https://www.orkambi.com/",
-        imgSrc: "/images/project-5.webp"
-      },
-      {
-        title: "Kalydeco",
-        url: "https://www.kalydeco.com/",
-        imgSrc: "/images/project-6.webp"
-      },
-      {
-        title: "Trikafta",
-        url: "https://www.trikafta.com/",
-        imgSrc: "/images/project-7.webp"
-      },
-      {
-        title: "CF Source HCP",
-        url: "https://www.cfsourcehcp.com/",
-        imgSrc: "/images/project-8.webp"
-      },
-    ]
   },
 
   footer: {

@@ -26,7 +26,7 @@ export default function Experience() {
   });
 
   return (
-    <section ref={sectionRef} id="experience" className={`py-10 lg:py-[100px] ${styles.experience}`}>
+    <section ref={sectionRef} className={`py-10 lg:py-[100px] ${styles.experience}`}>
       <div className="grid grid-cols-12 gap-6">
         <div ref={leftRef} className={`px-5 lg:px-[50px] col-span-12 gap-8 lg:gap-12 ${styles.left}`}>
           <div>

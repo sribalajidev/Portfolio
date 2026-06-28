@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import styles from "./About.module.scss";
 import dynamic from "next/dynamic";
 
@@ -19,6 +21,17 @@ export default function TimezoneCard({
   title,
   subtitle,
 }: TimezoneCardProps) {
+
+  const [showGlobe, setShowGlobe] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowGlobe(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div ref={ref} className={`col-span-1 rounded-3xl border border-white/30 ${styles.timezoneCard}`}>
       <div className="p-5">
@@ -30,7 +43,7 @@ export default function TimezoneCard({
       </div>
 
       <div className={styles.globeContainer}>
-        <Globe />
+        {showGlobe && <Globe />}
       </div>
     </div>
   );

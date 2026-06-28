@@ -42,7 +42,7 @@ export default function Footer() {
   });
   return (
     <>
-      <section ref={sectionRef} id="contact" className={styles.footerWrapper} data-contact>
+      <section ref={sectionRef} className={styles.footerWrapper} data-contact>
         <div className={styles.footerContent} data-contact-content>
           <h2 className={styles.title}>
             Got a Vision? Let&apos;s Bring It to Life!

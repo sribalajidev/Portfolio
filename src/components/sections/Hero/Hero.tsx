@@ -21,25 +21,25 @@ export default function Hero() {
   const descriptionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-  animateHero({
-    imageContainer: imageContainerRef.current,
-    image: imageRef.current,
-    badge: badgeRef.current,
-    heading: headingRef.current,
-    description: descriptionRef.current,
-    revealCoverClass: styles.revealCover,
-    introTextClass: styles.introText,
+    animateHero({
+      imageContainer: imageContainerRef.current,
+      image: imageRef.current,
+      badge: badgeRef.current,
+      heading: headingRef.current,
+      description: descriptionRef.current,
+      revealCoverClass: styles.revealCover,
+      introTextClass: styles.introText,
+    });
   });
-});
   return (
-    <section id="home" className={`relative flex justify-center h-[calc(100dvh-80px)] ${styles.hero}`}>
-      <div ref={imageContainerRef} className={`relative flex items-end justify-end overflow-hidden px-10 pt-5 ${styles.imageWrapper}`}>
-        <div ref={imageRef}>
-          <Image src={imageSrc} alt={imageAlt} width={1179} height={1379} className={styles.mainImage} priority/>
+    <section className={`relative flex justify-center h-[calc(100dvh-80px)] ${styles.hero}`}>
+      <div ref={imageContainerRef} className={`relative flex items-end justify-end overflow-hidden ${styles.imageWrapper}`}>
+        <div ref={imageRef} className={styles.mainImage}>
+          <Image src={imageSrc} alt={imageAlt} width={1179} height={1379} priority/>
         </div>
       </div>
 
-      <div className={`absolute left-0 top-1/2 flex h-full w-full -translate-y-1/2 items-center justify-between px-[50px] py-5 ${styles.contentWrapper}`}>
+      <div className={`flex items-center justify-between ${styles.contentWrapper}`}>
         <div className={`flex flex-col justify-end ${styles.leftContent}`}>
           <div ref={badgeRef} className={`flex w-fit items-center gap-2.5 bg-[rgb(var(--bg-secondary))] px-3 py-5 ${styles.availableBadge}`}>
             <div className={styles.circleContainer}>

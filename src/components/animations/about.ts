@@ -30,7 +30,7 @@ export function animateAbout({
   const tl = gsap.timeline({
     scrollTrigger: {
     trigger: section,
-    start: "top 80%",
+    start: "top 70%",
     end: "top 30%",
     scrub: true,
     },
@@ -40,7 +40,7 @@ export function animateAbout({
     opacity: 0,
     y: 60,
     filter: "blur(8px)",
-    duration: 2,
+    duration: 2.5,
     ease: "power4.out",
   });
 
@@ -49,11 +49,11 @@ export function animateAbout({
     {
       opacity: 0,
       y: 80,
-      stagger: 0.25,
+      stagger: 0.5,
       duration: 2,
       ease: "power4.out",
     },
-    "-=0.3"
+    "-=0.6"
   );
 
   return tl;

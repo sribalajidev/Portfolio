@@ -6,7 +6,6 @@ import CollaborationCard from "./CollaborationCard";
 import ProcessCard from "./ProcessCard";
 import TimezoneCard from "./TimezoneCard";
 
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { animateAbout } from "@/components/animations/about";
 
@@ -20,17 +19,17 @@ export default function About() {
   const timezoneRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-  animateAbout({
-    section: sectionRef.current,
-    header: headerRef.current,
-    collaboration: collaborationRef.current,
-    process: processRef.current,
-    timezone: timezoneRef.current,
+    animateAbout({
+      section: sectionRef.current,
+      header: headerRef.current,
+      collaboration: collaborationRef.current,
+      process: processRef.current,
+      timezone: timezoneRef.current,
+    });
   });
-});
 
   return (
-    <section ref={sectionRef} id="about" className={`bg-black mt-2.5 text-white py-10 px-5 lg:py-[100px] lg:px-[50px] rounded-t-[30px] lg:rounded-t-[50px] ${styles.about}`}>
+    <section ref={sectionRef} className={`bg-black mt-2.5 text-white py-10 px-5 lg:py-[100px] lg:px-[50px] rounded-t-[30px] lg:rounded-t-[50px] ${styles.about}`}>
       <div ref={headerRef}>
         <AboutHeader
           subtitle={about.subtitle}

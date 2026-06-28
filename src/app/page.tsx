@@ -33,13 +33,22 @@ export default function Home() {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const experienceSectionRef = useRef<HTMLDivElement>(null);
   const footerSectionRef = useRef<HTMLDivElement>(null);
+  
+  useGSAP(
+    () => {
+      const raf = requestAnimationFrame(() => {
+        animateSectionTransition({
+          from: heroSectionRef.current,
+          to: aboutSectionRef.current,
+        });
+      });
 
-  useGSAP(() => {
-    animateSectionTransition({
-      from: heroSectionRef.current,
-      to: aboutSectionRef.current,
-    });
-  });
+      return () => cancelAnimationFrame(raf);
+    },
+    {
+      scope: heroSectionRef,
+    }
+  );
   return (
     <>
       {showLoader ? (
@@ -50,19 +59,19 @@ export default function Home() {
       ) : (
         <> 
           <Navbar />
-          <div ref={heroSectionRef}>
+          <div ref={heroSectionRef} id="home">
             <Hero />
           </div>
-          <div ref={aboutSectionRef}>
+          <div ref={aboutSectionRef} id="about">
             <About />
           </div>
           <div>
             <ScrollText />
           </div>
-          <div ref={experienceSectionRef}>
+          <div ref={experienceSectionRef} id="experience">
             <Experience />
           </div>
-          <div ref={footerSectionRef}>
+          <div ref={footerSectionRef} id="contact">
             <Footer />
           </div>
         </>
