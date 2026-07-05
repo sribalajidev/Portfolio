@@ -57,9 +57,9 @@ export default function Home() {
       )}
 
       {contentReady && (
-        <>
+        <div id="home">
           <Navbar />
-          <div ref={heroSectionRef} id="home">
+          <div ref={heroSectionRef} >
             <Hero />
           </div>
           <div ref={aboutSectionRef} id="about">
@@ -74,7 +74,7 @@ export default function Home() {
           <div ref={footerSectionRef} id="footer">
             <Footer />
           </div>
-        </>
+        </div>
       )}
     </>
   );
