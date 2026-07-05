@@ -15,7 +15,7 @@ export const portfolioData = {
       },
       {
         label: "Let's Talk",
-        href: "contact",
+        href: "footer",
       },
     ],
 

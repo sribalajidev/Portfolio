@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Sri Balaji — Building Modern Web Experiences",
 
   description:
-    "Sri Balaji is a creative developer crafting modern web experiences using React, JavaScript, and UI engineering. Specializing in sleek design, smooth interactions, and agency-grade digital experiences.",
+    "Sri Balaji is a creative developer crafting modern web experiences using React, Nextjs, and UI engineering. Specializing in sleek design, smooth interactions, and agency-grade digital experiences.",
 
   keywords: [
     "Sri Balaji",
