@@ -18,13 +18,16 @@
     position: absolute;
     font-size: 21px;
     animation: titleReveal 1.2s ease-out forwards;
-    transform: translate(0%, -100%);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translate3d(0, -100%, 0);
   }
   @keyframes titleReveal {
     0% {
       opacity: 0;
       letter-spacing: 18px;
-      transform: translateY(-110%);
+      transform: translate3d(0, -110%, 0);
     }
     25% {
       opacity: 0.25;
@@ -38,7 +41,7 @@
     100% {
       opacity: 1;
       letter-spacing: 6px;
-      transform: translateY(-100%);
+      transform: translate3d(0, -100%, 0);
     }
   }
   .line {
