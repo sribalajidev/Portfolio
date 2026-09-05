@@ -1,8 +1,9 @@
-type ExperienceHeaderProps = {
-  subtitle: string;
-  title: string;
-  description: string;
-};
+import { Experience } from "@/sanity/types/experience";
+
+type ExperienceHeaderProps = Pick<
+  Experience,
+  "subtitle" | "title" | "description"
+>;
 
 export default function ExperienceHeader({
   subtitle,

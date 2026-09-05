@@ -4,10 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import styles from "./Footer.module.scss";
 
+import { Footer as FooterType } from "@/sanity/types/footer";
+
 import { useGSAP } from "@gsap/react";
 import { animateFooter } from "@/components/animations/footer";
 
-export default function Footer() {
+interface FooterProps {
+  data: FooterType;
+}
+
+export default function Footer({
+  data,
+}: FooterProps) {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -35,23 +43,30 @@ export default function Footer() {
   };
 
   const sectionRef = useRef<HTMLElement>(null);
+
   useGSAP(() => {
     animateFooter({
       section: sectionRef.current,
     });
   });
+
   return (
     <>
-      <section ref={sectionRef} className={styles.footerWrapper} data-contact>
-        <div className={styles.footerContent} data-contact-content>
+      <section
+        ref={sectionRef}
+        className={styles.footerWrapper}
+        data-contact
+      >
+        <div
+          className={styles.footerContent}
+          data-contact-content
+        >
           <h2 className={styles.title}>
-            Got a Vision? Let&apos;s Bring It to Life!
+            {data.title}
           </h2>
 
           <p className={styles.description}>
-            I&apos;m always excited to collaborate on new and innovative
-            projects. Whether you&apos;re starting from scratch or refining an
-            existing idea.
+            {data.description}
           </p>
 
           <button
@@ -59,7 +74,7 @@ export default function Footer() {
             className={styles.footerBtn}
             onClick={() => setIsContactOpen(true)}
           >
-            Say Hello
+            {data.buttonText}
             <FaArrowRight />
           </button>
         </div>
@@ -82,7 +97,7 @@ export default function Footer() {
         }`}
       >
         <div className={styles.formHeader}>
-          <h4>Let&apos;s Create Something Great Together</h4>
+          <h4>{data.note}</h4>
 
           <button
             type="button"
