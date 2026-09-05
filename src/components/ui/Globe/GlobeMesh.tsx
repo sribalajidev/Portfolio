@@ -8,42 +8,42 @@ import type { Group } from "three";
 
 import json from "./globe.json";
 
-export default function GlobeMesh() {
+import { globeCoordinates } from "@/lib/globeCoordinates";
+
+interface GlobeMeshProps {
+  locations: string[];
+}
+
+export default function GlobeMesh({
+  locations,
+}: GlobeMeshProps) {
   const ref = useRef<Group>(null);
 
   const globe = useMemo(() => {
+    const origin = globeCoordinates["India"];
+
+    const arcs = locations
+      .filter(
+        (location) =>
+          location !== "India" &&
+          globeCoordinates[location]
+      )
+      .map((location) => ({
+        startLat: origin.lat,
+        startLng: origin.lng,
+        endLat: globeCoordinates[location].lat,
+        endLng: globeCoordinates[location].lng,
+      }));
+
     const g = new ThreeGlobe()
-      .hexPolygonsData((json as { features: object[] }).features)
+      .hexPolygonsData(
+        (json as { features: object[] }).features
+      )
       .hexPolygonResolution(3)
       .hexPolygonMargin(0.6)
       .hexPolygonColor(() => "#ffffff")
 
-      .arcsData([
-        {
-          startLat: 20.5937,
-          startLng: 78.9629,
-          endLat: 37.7749,
-          endLng: -122.4194,
-        },
-        {
-          startLat: 20.5937,
-          startLng: 78.9629,
-          endLat: 51.5072,
-          endLng: -0.1276,
-        },
-        {
-          startLat: 20.5937,
-          startLng: 78.9629,
-          endLat: 23.4241,
-          endLng: 53.8478,
-        },
-        {
-          startLat: 20.5937,
-          startLng: 78.9629,
-          endLat: -25.2744,
-          endLng: 133.7751,
-        },
-      ])
+      .arcsData(arcs)
 
       .arcColor(() => "#ffffff")
       .arcStroke(0.6)
@@ -56,19 +56,21 @@ export default function GlobeMesh() {
       .atmosphereColor("#ffffff")
       .atmosphereAltitude(0.1);
 
-    const material = g.globeMaterial() as THREE.MeshPhongMaterial;
+    const material =
+      g.globeMaterial() as THREE.MeshPhongMaterial;
 
     material.color = new THREE.Color("#000000");
     material.emissive = new THREE.Color("#000000");
     material.shininess = 0;
 
     return g;
-  }, []);
+  }, [locations]);
 
   useEffect(() => {
     if (!ref.current) return;
 
-    ref.current.rotation.y = -((78.9629 * Math.PI) / 180);
+    ref.current.rotation.y =
+      -((78.9629 * Math.PI) / 180);
   }, []);
 
   useFrame(() => {

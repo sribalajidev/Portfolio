@@ -1,8 +1,9 @@
-type AboutHeaderProps = {
-  subtitle: string;
-  title: string;
-  description: string;
-};
+import { About } from "@/sanity/types/about";
+
+type AboutHeaderProps = Pick<
+  About,
+  "subtitle" | "title" | "description"
+>;
 
 export default function AboutHeader({
   subtitle,

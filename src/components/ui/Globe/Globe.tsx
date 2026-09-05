@@ -5,7 +5,13 @@ import { OrbitControls } from "@react-three/drei";
 
 import GlobeMesh from "./GlobeMesh";
 
-export default function Globe() {
+interface GlobeProps {
+  locations: string[];
+}
+
+export default function Globe({
+  locations,
+}: GlobeProps) {
   return (
     <div className="h-[300px] w-full md:h-[350px] lg:h-[400px]">
       <Canvas
@@ -16,7 +22,7 @@ export default function Globe() {
       >
         <ambientLight intensity={10} />
 
-        <GlobeMesh />
+        <GlobeMesh locations={locations} />
 
         <OrbitControls
           enableZoom={false}
