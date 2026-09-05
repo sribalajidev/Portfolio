@@ -4,15 +4,22 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import styles from "./Hero.module.scss";
-import { portfolioData } from "@/data/portfolio";
+import styles from "./Hero.module.scss"; 
 import { animateHero } from "@/components/animations/hero";
+
+// sanity types
+import { Hero as HeroType } from "@/sanity/types/hero";
+import { urlFor } from "@/sanity/lib/image";
+
+interface HeroProps {
+  data: HeroType;
+}
 
 gsap.registerPlugin(useGSAP);
 
-export default function Hero() {
+export default function Hero({ data }: HeroProps) {
 
-  const { tagline, badge, description, imageSrc, imageAlt } = portfolioData.hero;
+  const { tagline, badge, description, image } = data;
   // ref for animation
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -35,7 +42,7 @@ export default function Hero() {
     <section className={`relative flex justify-center h-[calc(100dvh-80px)] ${styles.hero}`}>
       <div ref={imageContainerRef} className={`relative flex items-end justify-end overflow-hidden ${styles.imageWrapper}`}>
         <div ref={imageRef} className={styles.mainImage}>
-          <Image src={imageSrc} alt={imageAlt} width={1179} height={1379} priority/>
+          <Image src={urlFor(image.image).width(1179).url()} alt={image.alt} width={1179} height={1379} priority/>
         </div>
       </div>
 

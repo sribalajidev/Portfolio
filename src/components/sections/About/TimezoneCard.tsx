@@ -1,7 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
-import styles from "./About.module.scss";
+
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+
+import styles from "./About.module.scss";
+
+import { Timezone } from "@/sanity/types/about";
 
 const Globe = dynamic(
   () => import("@/components/ui/Globe/Globe"),
@@ -10,18 +14,16 @@ const Globe = dynamic(
   }
 );
 
-type TimezoneCardProps = {
+interface TimezoneCardProps extends Timezone {
   ref?: React.Ref<HTMLDivElement>;
-  title: string;
-  subtitle: string;
-};
+}
 
 export default function TimezoneCard({
   ref,
   title,
   subtitle,
+  locations,
 }: TimezoneCardProps) {
-
   const [showGlobe, setShowGlobe] = useState(false);
 
   useEffect(() => {
@@ -33,7 +35,10 @@ export default function TimezoneCard({
   }, []);
 
   return (
-    <div ref={ref} className={`col-span-1 rounded-3xl border border-white/30 ${styles.timezoneCard}`}>
+    <div
+      ref={ref}
+      className={`col-span-1 rounded-3xl border border-white/30 ${styles.timezoneCard}`}
+    >
       <div className="p-5">
         <p className="text-2xl font-bold">{title}</p>
 
@@ -43,7 +48,7 @@ export default function TimezoneCard({
       </div>
 
       <div className={styles.globeContainer}>
-        {showGlobe && <Globe />}
+        {showGlobe && <Globe locations={locations} />}
       </div>
     </div>
   );

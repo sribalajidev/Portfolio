@@ -1,28 +1,28 @@
 "use client";
 
 import { FaChevronDown } from "react-icons/fa";
+
 import styles from "./Experience.module.scss";
 
-type TimelineItem = {
-  year: string;
-  duration: string;
-  role: string;
-  company: string;
-  summary: string;
-  technologies: string[];
-  highlights: string[];
-};
+import {
+  ExperienceTimelineItem,
+} from "@/sanity/types/experience";
 
-type ExperienceStackProps = {
-  timeline: TimelineItem[];
-};
+interface ExperienceStackProps {
+  timeline: ExperienceTimelineItem[];
+}
 
-export default function ExperienceStack({ timeline }: ExperienceStackProps) {
+export default function ExperienceStack({
+  timeline,
+}: ExperienceStackProps) {
   return (
-    <div className={styles.stack} data-stack>
+    <div
+      className={styles.stack}
+      data-stack
+    >
       {timeline.map((item, index) => (
         <div
-          key={item.year}
+          key={item._key}
           className={styles.itemWrapper}
           data-item-wrapper
         >
@@ -34,15 +34,31 @@ export default function ExperienceStack({ timeline }: ExperienceStackProps) {
             data-expanded={index === 0}
           >
             <div className={styles.indication}>
-              <span className={styles.year}>{item.year}</span>
-              <span className={styles.duration}>{item.duration}</span>
+              <span className={styles.year}>
+                {item.year}
+              </span>
+
+              <span className={styles.duration}>
+                {item.duration}
+              </span>
             </div>
 
-            <div className={styles.cardContent} data-card-content>
-              <header className={styles.header} data-header>
+            <div
+              className={styles.cardContent}
+              data-card-content
+            >
+              <header
+                className={styles.header}
+                data-header
+              >
                 <div className={styles.title}>
-                  <h2 className={styles.role}>{item.role}</h2>
-                  <p className={styles.company}>{item.company}</p>
+                  <h2 className={styles.role}>
+                    {item.role}
+                  </h2>
+
+                  <p className={styles.company}>
+                    {item.company}
+                  </p>
                 </div>
 
                 <button
@@ -54,27 +70,50 @@ export default function ExperienceStack({ timeline }: ExperienceStackProps) {
                 </button>
               </header>
 
-              <div className={styles.body} data-body>
-                <div className={styles.bodyInner} data-body-inner>
-                  <p className={styles.summary}>{item.summary}</p>
+              <div
+                className={styles.body}
+                data-body
+              >
+                <div
+                  className={styles.bodyInner}
+                  data-body-inner
+                >
+                  <p className={styles.summary}>
+                    {item.summary}
+                  </p>
 
                   <div className={styles.section}>
-                    <span className={styles.label}>Technologies</span>
+                    <span className={styles.label}>
+                      Technologies
+                    </span>
+
                     <div className={styles.tags}>
-                      {item.technologies.map((tech) => (
-                        <span key={tech} className={styles.tag}>
-                          {tech}
-                        </span>
-                      ))}
+                      {item.technologies.map(
+                        (tech) => (
+                          <span
+                            key={tech}
+                            className={styles.tag}
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
                     </div>
                   </div>
 
                   <div className={styles.section}>
-                    <span className={styles.label}>Key Contributions</span>
+                    <span className={styles.label}>
+                      Key Contributions
+                    </span>
+
                     <ul className={styles.highlights}>
-                      {item.highlights.map((highlight) => (
-                        <li key={highlight}>{highlight}</li>
-                      ))}
+                      {item.highlights.map(
+                        (highlight) => (
+                          <li key={highlight}>
+                            {highlight}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
                 </div>
