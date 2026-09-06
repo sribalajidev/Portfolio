@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { anchorField } from "../common/anchor";
 
 export default defineType({
   name: "hero",
@@ -34,5 +35,7 @@ export default defineType({
       type: "imageObject",
       validation: Rule => Rule.required(),
     }),
+
+    anchorField,
   ],
 });

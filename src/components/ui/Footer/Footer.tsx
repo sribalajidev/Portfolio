@@ -53,7 +53,7 @@ export default function Footer({
   return (
     <>
       <section
-        ref={sectionRef}  id={data._type}
+        ref={sectionRef}  id={data.anchor}
         className={styles.footerWrapper}
         data-contact
       >

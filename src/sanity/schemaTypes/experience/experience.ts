@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { anchorField } from "../common/anchor";
 
 export default defineType({
   name: "experience",
@@ -42,5 +43,7 @@ export default defineType({
       of: [{ type: "experienceTimelineItem" }],
       validation: Rule => Rule.required(),
     }),
+
+    anchorField,
   ],
 });

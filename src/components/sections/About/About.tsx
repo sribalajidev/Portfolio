@@ -34,7 +34,7 @@ export default function About({ data }: AboutProps) {
   });
 
   return (
-    <section ref={sectionRef} id={data._type} className={`bg-black mt-2.5 text-white py-10 px-5 lg:py-[100px] lg:px-[50px] rounded-t-[30px] lg:rounded-t-[50px]`}>
+    <section ref={sectionRef} id={data.anchor} className={`bg-black mt-2.5 text-white py-10 px-5 lg:py-[100px] lg:px-[50px] rounded-t-[30px] lg:rounded-t-[50px]`}>
       <div ref={headerRef}>
         <AboutHeader
           subtitle={data.subtitle}

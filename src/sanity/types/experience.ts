@@ -21,4 +21,5 @@ export interface Experience {
   description: string;
   stats: ExperienceStat[];
   timeline: ExperienceTimelineItem[];
+  anchor?: string;
 }

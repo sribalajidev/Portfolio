@@ -5,4 +5,5 @@ export interface Hero {
   badge: string;
   description: string;
   image: SanityImage;
+  anchor?: string;
 }

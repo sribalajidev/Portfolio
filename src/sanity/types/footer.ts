@@ -4,4 +4,5 @@ export interface Footer {
   buttonText: string;
   email: string;
   note: string;
+  anchor?: string;
 }
