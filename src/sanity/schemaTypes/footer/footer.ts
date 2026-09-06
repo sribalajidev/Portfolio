@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { anchorField } from "../common/anchor";
 
 export default defineType({
   name: "footer",
@@ -40,5 +41,7 @@ export default defineType({
       type: "string",
       validation: Rule => Rule.required(),
     }),
+    
+      anchorField,
   ],
 });

@@ -39,4 +39,5 @@ export interface About {
   collaboration: Collaboration;
   process: Process;
   timezone: Timezone;
+  anchor?: string;
 }

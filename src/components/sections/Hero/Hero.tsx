@@ -39,7 +39,7 @@ export default function Hero({ data }: HeroProps) {
     });
   });
   return (
-    <section id={data._type} className={`relative flex justify-center h-[calc(100dvh-80px)] ${styles.hero}`}>
+    <section id={data.anchor} className={`relative flex justify-center h-[calc(100dvh-80px)] ${styles.hero}`}>
       <div ref={imageContainerRef} className={`relative flex items-end justify-end overflow-hidden ${styles.imageWrapper}`}>
         <div ref={imageRef} className={styles.mainImage}>
           <Image src={urlFor(image.image).width(1179).url()} alt={image.alt} width={1179} height={1379} priority/>

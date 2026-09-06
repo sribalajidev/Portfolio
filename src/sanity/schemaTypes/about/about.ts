@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { anchorField } from "../common/anchor";
 
 export default defineType({
   name: "about",
@@ -47,5 +48,7 @@ export default defineType({
       type: "timezone",
       validation: Rule => Rule.required(),
     }),
+
+    anchorField,
   ],
 });
