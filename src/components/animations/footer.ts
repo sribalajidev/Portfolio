@@ -21,12 +21,10 @@ export function animateFooter({
   gsap.fromTo(
     content,
     {
-      opacity: 0,
-      y: 80,
+      y: 30,
       filter: "blur(20px)",
     },
     {
-      opacity: 1,
       y: 0,
       filter: "blur(0px)",
       duration: 1.2,

@@ -33,7 +33,7 @@ export default function Experience({
   });
 
   return (
-    <section
+    <section id={data._type} 
       ref={sectionRef}
       className={`py-10 lg:py-[100px] ${styles.experience}`}
     >
